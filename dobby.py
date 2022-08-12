@@ -41,7 +41,7 @@ class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
     pdict['CONTENT-LENGTH'] = int(self.headers['Content-Length'])
     if ctype == 'multipart/form-data':
       form = cgi.FieldStorage( fp=self.rfile, headers=self.headers, environ={'REQUEST_METHOD':'POST', 'CONTENT_TYPE':self.headers['Content-Type'], })
-      print (type (form))
+      print (type(form))
       try:
         if isinstance(form["file"], list):
           for record in form["file"]:
