@@ -17,7 +17,7 @@ except ImportError:
 class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
   
   #Handles POST requests
-  def do_POST(self)
+  def do_POST(self):
     r, info = self.deal_post_data()
     print(r, info, "by: ", self.client_address)
     f = io.BytesIO()
