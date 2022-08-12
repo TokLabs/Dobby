@@ -46,6 +46,8 @@ class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
         if isinstance(form["file"], list):
           for record in form["file"]:
             open("./%s"%record.filename, "wb").write(form["file"].file.read())
+        else:
+            open("./%s"%form["file"].filename, "wb").write(form["file"].file.read())
           except IOError:
             return (False, "Cannot create file to write")
           return (True, "Uploaded Successfully")
