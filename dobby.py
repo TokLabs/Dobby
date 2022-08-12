@@ -45,12 +45,12 @@ class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
       try:
         if isinstance(form["file"], list):
           for record in form["file"]:
-            open("./%s"%record.filename, "wb").write(form["file"].file.read())
+            open("./%s"%record.filename, "wb").write(record.file.read())
         else:
             open("./%s"%form["file"].filename, "wb").write(form["file"].file.read())
       except IOError:
         return (False, "Cannot create file to write")
-        return (True, "Uploaded Successfully")
+    return (True, "Uploaded Successfully")
         
   #Handles GET requests
   def do_GET(self):
