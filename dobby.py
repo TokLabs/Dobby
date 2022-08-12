@@ -47,7 +47,7 @@ class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
           for record in form["file"]:
             open("./%s"%record.filename, "wb").write(form["file"].file.read())
           except IOError:
-            return (False, Cannot create file to write)
+            return (False, "Cannot create file to write")
           return (True, "Uploaded Successfully")
         
   #Handles GET requests
