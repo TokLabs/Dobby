@@ -38,7 +38,7 @@ class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
   def deal_post_data(self):
     ctype, pdict = cgi.parse_header(self.headers['Content-Type'])
     pdict['boundary'] = bytes(pdict['boundary'], "utf-8")
-    pdict['CONTENT-LENGTH'] = int (self.headers['Content-Length'])
+    pdict['CONTENT-LENGTH'] = int(self.headers['Content-Length'])
     if ctype == 'multipart/form-data':
       form = cgi.FieldStorage( fp=self.rfile, headers=self.headers, environ={'REQUEST_METHOD':'POST', 'CONTENT_TYPE':self.headers['Content-Type'], })
       print (type (form))
