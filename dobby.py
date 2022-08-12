@@ -14,7 +14,7 @@ except ImportError:
   #Python 2.*
   import SimpleHTTPServer as server
   
-class HTTPRequestHanfler(server.SimpleHTTPRequestHandler):
+class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
   
   #Handles POST requests
   def do_POST(self)
