@@ -77,10 +77,7 @@ class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
     reply_body = 'Saved "%s"\n' % filename
     self.wfile.write(reply_body.encode('utf-8'))
     
-if __name__ == '__main__':
-  server.test(HandlerClass=HTTPRequestHandler)
-
-Handler - HTTPRequestHandler
+Handler = HTTPRequestHandler
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
   print("serving at port", PORT)
   httpd.serve_forever()
